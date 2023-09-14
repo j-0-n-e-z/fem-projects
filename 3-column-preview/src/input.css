@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.learn-more-button {
+		@apply font-LexendDeca text-[15px] lg:mt-auto mt-8 bg-veryLightGray w-fit px-[30px] py-[10px] rounded-full capitalize hover:bg-transparent hover:text-transparentWhite border-2 border-veryLightGray transition;
+	}
+
+	.heading {
+		@apply font-BigShouldersDisplay uppercase text-[40px] text-veryLightGray lg:mb-4 mb-5;
+	}
+
+	.description {
+		@apply font-LexendDeca text-[15px] leading-[1.55rem] text-transparentWhite;
+	}
+
+	.card-item {
+		@apply flex flex-col w-fit px-12 py-12;
+	}
+
+	.card-item__icon {
+		@apply lg:mb-8 mb-6 w-min;
+	}
+}

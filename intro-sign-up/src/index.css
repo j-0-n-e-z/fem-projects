@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.input-container {
+		@apply relative;
+	}
+
+	.input-container__input {
+		@apply w-full text-[14px] lg:px-8 px-4 py-[18px] border-[1px] border-gray-300 rounded-lg placeholder:text-dark-blue placeholder:font-semibold font-semibold outline-none focus:border-light-purple;
+	}
+
+	.input-container__input--error {
+		@apply border-[2px] border-light-red text-light-red placeholder:text-light-red focus:border-light-red;
+	}
+
+	.input-container__error-msg {
+		@apply text-light-red text-end italic mt-1 text-[11px];
+	}
+
+	.input-container__icon {
+		@apply absolute top-5 right-7;
+	}
+}

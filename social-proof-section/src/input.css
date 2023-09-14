@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.rate-container {
+		@apply flex xl:flex-row flex-col gap-y-3 items-center px-8 xl:py-4 py-3 bg-lightGrayishMagenta rounded-xl xl:w-[80%] w-full;
+	}
+
+	.rate-container__icons {
+		@apply flex gap-x-2 xl:mr-8;
+	}
+
+	.rate-container__heading {
+		@apply font-bold text-[17px] text-veryDarkMagenta;
+	}
+
+	.star {
+		@apply w-[16px] h-[17px];
+	}
+
+	.review-container {
+		@apply bg-veryDarkMagenta xl:h-[90%] px-8 py-9 space-y-4 rounded-xl xl:w-[350px] w-full;
+	}
+
+	.review-container__heading {
+		@apply flex gap-x-6;
+	}
+
+	.review-container__heading__avatar {
+		@apply w-10 h-10 rounded-full;
+	}
+
+	.review-container__heading__title {
+		@apply flex flex-col;
+	}
+
+	.review-container__heading__title > h3 {
+		@apply text-white font-medium text-[17px];
+	}
+
+	.review-container__heading__title > span {
+		@apply text-softPink text-[17px] tracking-tight -mt-1;
+	}
+
+	.review-container__quote {
+		@apply text-white text-[15px] leading-[1.4rem] tracking-wider;
+	}
+}

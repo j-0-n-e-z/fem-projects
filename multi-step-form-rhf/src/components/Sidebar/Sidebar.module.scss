@@ -1,0 +1,81 @@
+@import '../../index.scss';
+
+.sidebar {
+	padding: 35px;
+	min-width: 274px;
+	height: 568px;
+	background-image: url('/images/bg-sidebar-desktop.svg');
+	margin-left: 18px;
+	color: #fff;
+
+	@include mobile {
+		display: flex;
+		justify-content: center;
+		align-items: start;
+		background-image: url('/images/bg-sidebar-mobile.svg');
+		width: 375px;
+		height: 172px;
+		margin: 0;
+		gap: 20px;
+		position: fixed;
+
+		.sidebar__step__info {
+			display: none;
+		}
+	}
+
+	&__step {
+		display: flex;
+		align-items: center;
+		margin-bottom: 20px;
+
+		@include mobile {
+			margin: 0;
+		}
+
+		&__num {
+			width: 35px;
+			height: 35px;
+			border-radius: 100%;
+			background-color: $primary;
+			border: 2px solid $sidebar-step;
+			font-size: 15px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-weight: bold;
+			margin-right: 20px;
+
+			@include mobile {
+				margin: 0;
+			}
+
+			&--current {
+				background-color: $sidebar-step;
+				border: 2px solid $sidebar-step;
+				color: $dark-blue;
+				outline: none;
+			}
+		}
+
+		&__info {
+			display: flex;
+			flex-direction: column;
+			align-items: start;
+
+			&__title {
+				text-transform: uppercase;
+				font-size: 13px;
+				color: $gray;
+				margin-bottom: 3px;
+			}
+
+			&__description {
+				text-transform: uppercase;
+				font-weight: 500;
+				font-size: 15px;
+				letter-spacing: 1px;
+			}
+		}
+	}
+}

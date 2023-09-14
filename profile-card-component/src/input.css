@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.stat-item {
+		@apply flex flex-col items-center lg:w-[50px] w-10;
+	}
+
+	.stat-item__heading {
+		@apply font-bold text-lg text-veryDarkDesaturatedBlue;
+	}
+
+	.stat-item__title {
+		@apply text-darkGray text-[12px] tracking-wider;
+	}
+}

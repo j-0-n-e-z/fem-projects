@@ -1,0 +1,40 @@
+@import '../../index.scss';
+
+.inputLabel {
+	font-size: 16px;
+	margin-bottom: 10px;
+	display: flex;
+	justify-content: space-between;
+
+	@include mobile {
+		font-size: 14px;
+	}
+
+	&__error {
+		font-weight: bold;
+		color: $error;
+	}
+}
+
+.input {
+	width: 100%;
+	margin-bottom: 20px;
+	height: 45px;
+	text-indent: 10px;
+	border-radius: 10px;
+	border: 1px solid #ccc;
+	font-weight: 500;
+	font-size: 17px;
+
+	&::placeholder {
+		color: $gray;
+	}
+
+	&:focus-visible {
+		outline: none;
+	}
+
+	&--error {
+		border: 1px solid $error;
+	}
+}

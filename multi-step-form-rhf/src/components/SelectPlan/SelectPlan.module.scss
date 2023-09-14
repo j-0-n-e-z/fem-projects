@@ -1,0 +1,20 @@
+@import '../../index.scss';
+
+.plansContainer {
+	height: 300px;
+
+	@include mobile {
+		height: auto;
+	}
+
+	&__plans {
+		margin-top: 20px;
+		display: flex;
+		justify-content: space-between;
+
+		@include mobile {
+			flex-direction: column;
+			gap: 15px;
+		}
+	}
+}

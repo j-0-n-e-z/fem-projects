@@ -1,0 +1,77 @@
+.plan {
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	border: 1px solid var(--grey);
+	border-radius: 10px;
+	padding: 20px;
+	width: 150px;
+	background-color: #fff;
+
+	&:hover {
+		border: 1px solid var(--primary);
+	}
+
+	&:focus {
+		outline: none;
+		border: 1px solid var(--primary);
+		background-color: hsla(243, 100%, 62%, 15%);
+	}
+
+	@media (max-width: 640px) {
+		width: 100%;
+		flex-direction: row;
+		padding: 15px;
+	}
+}
+
+.icon {
+	width: 40px;
+	margin-bottom: 60px;
+
+	@media (max-width: 640px) {
+		margin-bottom: auto;
+	}
+}
+
+.info {
+	@media (max-width: 640px) {
+		margin-left: 15px;
+	}
+}
+
+.title {
+	font-size: 20px;
+	font-weight: 500;
+	margin: 0;
+	margin-bottom: 5px;
+
+	@media (max-width: 640px) {
+		font-size: 16px;
+	}
+}
+
+.price {
+	margin: 0;
+	color: var(--grey);
+	font-size: 16px;
+
+	@media (max-width: 640px) {
+		font-size: 14px;
+	}
+}
+
+.selected {
+	border: 1px solid var(--primary);
+	background-color: hsla(243, 100%, 62%, 15%);
+}
+
+.monthsFree {
+	font-size: 13px;
+	margin-top: 10px;
+
+	@media (max-width: 640px) {
+		font-size: 12px;
+		margin-top: 5px;
+	}
+}

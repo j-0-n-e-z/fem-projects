@@ -1,0 +1,80 @@
+@import '../../vars.css';
+
+.sidebar {
+	padding: 35px;
+	min-width: 274px;
+	height: 568px;
+	background-image: url(../../../public/images/bg-sidebar-desktop.svg);
+	margin-left: 18px;
+	color: #fff;
+
+	@media (max-width: 640px) {
+		display: flex;
+		justify-content: center;
+		align-items: start;
+		background-image: url(../../../public/images/bg-sidebar-mobile.svg);
+		width: 375px;
+		height: 172px;
+		margin: 0;
+		gap: 20px;
+
+		.info {
+			display: none;
+		}
+	}
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+}
+
+.step {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+
+	@media (max-width: 640px) {
+		margin: 0;
+	}
+}
+
+.stepNum {
+	width: 35px;
+	height: 35px;
+	border-radius: 100%;
+	background-color: var(---primary);
+	border: 2px solid var(--sidebar-step);
+	font-size: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	margin-right: 20px;
+
+	@media (max-width: 640px) {
+		margin: 0;
+	}
+}
+
+.currentStep {
+	background-color: var(--sidebar-step);
+	border: 2px solid var(--sidebar-step);
+	color: var(--dark-blue);
+	outline: none;
+}
+
+.title {
+	text-transform: uppercase;
+	font-size: 13px;
+	color: var(--grey);
+	margin-bottom: 3px;
+}
+
+.description {
+	text-transform: uppercase;
+	font-weight: 500;
+	font-size: 15px;
+	letter-spacing: 1px;
+}

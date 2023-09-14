@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.technologies {
+		@apply flex flex-wrap justify-center xl:w-[1152px] w-full xl:gap-8 gap-6 xl:my-16 mb-20 mt-12;
+	}
+
+	.technologies__item {
+		@apply flex flex-col gap-y-3 xl:px-8 px-6 xl:py-7 py-5 bg-white xl:w-[350px] lg:w-[48%] w-full xl:h-[250px] h-[220px] shadow-xl lg:rounded-xl rounded-lg;
+	}
+
+	.technologies__item--red {
+		@apply border-t-4 border-red;
+	}
+
+	.technologies__item--cyan {
+		@apply xl:translate-y-technologies border-t-4 border-cyan;
+	}
+
+	.technologies__item--blue {
+		@apply xl:translate-y-technologies border-t-4 border-blue;
+	}
+
+	.technologies__item--orange {
+		@apply border-t-4 border-orange;
+	}
+
+	.technologies__item__title {
+		@apply font-semibold text-xl text-veryDarkBlue;
+	}
+	.technologies__item__description {
+		@apply text-grayishBlue text-[14px];
+	}
+
+	.technologies__item__icon {
+		@apply ml-auto mt-auto lg:w-auto w-14;
+	}
+}

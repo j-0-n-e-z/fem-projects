@@ -1,0 +1,44 @@
+{
+	"name": "launch-countdown-timer",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"homepage": "https://j-0-n-e-z.github.io/launch-countdown-timer",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"preview": "vite preview",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d dist"
+	},
+	"dependencies": {
+		"@fortawesome/fontawesome-svg-core": "^6.4.0",
+		"@fortawesome/free-brands-svg-icons": "^6.4.0",
+		"@fortawesome/free-regular-svg-icons": "^6.4.0",
+		"@fortawesome/react-fontawesome": "^0.2.0",
+		"react": "^18.2.0",
+		"react-confetti": "^6.1.0",
+		"react-dom": "^18.2.0"
+	},
+	"devDependencies": {
+		"@types/react": "^18.0.28",
+		"@types/react-dom": "^18.0.11",
+		"@typescript-eslint/eslint-plugin": "^5.59.8",
+		"@typescript-eslint/parser": "^5.59.8",
+		"@vitejs/plugin-react-swc": "^3.0.0",
+		"autoprefixer": "^10.4.14",
+		"eslint": "^8.41.0",
+		"eslint-config-prettier": "^8.8.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"eslint-plugin-react": "^7.32.2",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"eslint-plugin-tailwindcss": "^3.12.0",
+		"gh-pages": "^5.0.0",
+		"postcss": "^8.4.21",
+		"prettier": "^2.8.8",
+		"prettier-plugin-tailwindcss": "^0.3.0",
+		"tailwindcss": "^3.3.0",
+		"typescript": "^4.9.3",
+		"vite": "^4.2.0"
+	}
+}

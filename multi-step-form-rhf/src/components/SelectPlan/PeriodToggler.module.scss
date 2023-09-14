@@ -1,0 +1,81 @@
+@import '../../index.scss';
+
+.toggle {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	column-gap: 15px;
+	margin-top: 40px;
+	height: 50px;
+	width: 100%;
+	background-color: $primary-light;
+	border-radius: 5px;
+
+	&:has(:not(input[type='checkbox']:checked)) {
+		.toggle__case:first-of-type {
+			font-weight: 500;
+			color: #000;
+		}
+		.toggle__case:last-of-type {
+			font-weight: normal;
+			color: $gray;
+		}
+	}
+
+	&:has(input[type='checkbox']:checked) {
+		.toggle__case:last-of-type {
+			font-weight: 500;
+			color: #000;
+		}
+		.toggle__case:first-of-type {
+			font-weight: normal;
+			color: $gray;
+		}
+	}
+
+	@include mobile {
+		margin-top: 20px;
+	}
+
+	&__btn {
+		position: relative;
+		width: 40px;
+		height: 22px;
+		border-radius: 20px;
+		background-color: $dark-blue;
+		display: flex;
+		align-items: center;
+		padding: 0;
+		margin: 0;
+		border: none;
+		appearance: none;
+		cursor: pointer;
+
+		&:focus-visible {
+			outline: 2px solid $outline;
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			width: 12px;
+			height: 12px;
+			border-radius: 100%;
+			background-color: #fff;
+			transition: all 0.1s linear;
+			left: 5px;
+		}
+
+		&:checked::before {
+			transform: translateX(18px);
+		}
+	}
+
+	&__case {
+		color: $gray;
+		cursor: pointer;
+		height: 100%;
+		display: flex;
+		align-items: center;
+	}
+}

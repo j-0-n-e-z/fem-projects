@@ -1,0 +1,86 @@
+@import '../../index.scss';
+
+.addOn {
+	display: flex;
+	border: 1px solid $gray;
+	border-radius: 10px;
+	padding: 20px;
+	transition: border 0.2s ease, scale 0.2s ease-in-out;
+
+	@media (hover: hover) {
+		&:hover {
+			border: 1px solid $primary;
+			scale: 1.03;
+		}
+	}
+
+	@media (hover: none) {
+		&:active {
+			border: 1px solid $primary;
+			scale: 1.03;
+		}
+	}
+
+	&:has(input[type='checkbox']:checked) {
+		border: 1px solid $primary;
+		scale: 1.03;
+	}
+
+	&:has(input[type='checkbox']:focus-visible) {
+		outline: 2px solid $outline;
+		scale: 1.03;
+	}
+
+	@include mobile {
+		padding: 10px;
+	}
+
+	&__info {
+		display: flex;
+		flex-flow: column nowrap;
+		margin-left: 20px;
+
+		@include mobile {
+			margin-left: 10px;
+		}
+
+		&__title {
+			font-weight: bold;
+
+			@include mobile {
+				font-size: 14px;
+			}
+		}
+
+		&__description {
+			color: $gray;
+			font-size: 16px;
+			margin-top: 5px;
+
+			@include mobile {
+				font-size: 13px;
+			}
+		}
+	}
+
+	&__price {
+		margin-left: auto;
+		display: flex;
+		align-items: center;
+		color: $primary;
+
+		@include mobile {
+			font-size: 13px;
+		}
+	}
+
+	&__checkbox {
+		width: 20px;
+		accent-color: $primary;
+		outline: none;
+
+		@include mobile {
+			width: 18px;
+		}
+	}
+}

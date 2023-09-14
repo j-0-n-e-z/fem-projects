@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.brand-icon {
+		@apply cursor-pointer rounded-full border-[1px] lg:w-8 lg:h-8 w-16 h-16 grid place-items-center border-pale-blue bg-white text-my-blue hover:text-white hover:bg-my-blue transition outline-none focus-visible:ring-2 focus-visible:ring-my-blue;
+	}
+}

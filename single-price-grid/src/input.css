@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.info-container {
+		@apply md:w-1/2 md:px-10 px-5 md:py-10 py-6 h-full;
+	}
+
+	.info-container__heading {
+		@apply text-white text-lg font-bold;
+	}
+}

@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	#root {
+		@apply grid lg:items-center justify-items-center h-screen bg-off-white;
+	}
+
+	.time-item {
+		@apply flex flex-col lg:gap-y-2 gap-y-1;
+
+		&__input {
+			@apply border-[1px] border-light-grey text-input text-xl font-bold lg:w-40 w-[88px] lg:h-16 h-14 lg:p-6 p-4 rounded-lg focus-visible:border-purple outline-none;
+
+			&::-webkit-outer-spin-button,
+			&::-webkit-inner-spin-button {
+				-webkit-appearance: none;
+				margin: 0;
+			}
+
+			-moz-appearance: textfield;
+
+			&--error {
+				@apply border-light-red;
+			}
+		}
+
+		&__name {
+			@apply lg:text-sm text-[12px] text-smokey-grey font-bold tracking-[0.2rem];
+
+			&--error {
+				@apply text-light-red;
+			}
+		}
+
+		&__error {
+			@apply italic text-light-red lg:text-[15px] text-[10px] lg:w-auto w-[88px];
+		}
+	}
+
+	.age-item {
+		@apply flex gap-x-3 lg:text-[100px] text-[50px] font-semibold italic lg:leading-[7rem] leading-[4rem];
+
+		&__count {
+			@apply block text-purple lg:text-[100px];
+		}
+
+		&__name {
+			@apply block;
+		}
+	}
+}
+
+body,
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}

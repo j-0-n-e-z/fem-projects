@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.controls-shadow {
+		box-shadow: inset 0 -4px hsl(var(--twc-controlShadow));
+	}
+	.key-shadow {
+		box-shadow: inset 0 -4px hsl(var(--twc-keyShadow));
+	}
+	.equal-shadow {
+		box-shadow: inset 0 -4px hsl(var(--twc-equalShadow));
+	}
+}
