@@ -13,8 +13,8 @@ export default {
 				'grayish-blue': 'hsl(246, 25%, 77%)'
 			},
 			backgroundImage: {
-				desktop: 'url(/assets/images/bg-intro-desktop.png)',
-				mobile: 'url(/assets/images/bg-intro-mobile.png)'
+				desktop: 'url(./images/bg-intro-desktop.png)',
+				mobile: 'url(./images/bg-intro-mobile.png)'
 			},
 			boxShadow: {
 				grayishBlue: '0 8px 0 0 #3e3c493f',

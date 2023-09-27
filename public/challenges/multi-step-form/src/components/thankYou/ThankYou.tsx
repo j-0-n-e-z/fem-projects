@@ -7,7 +7,7 @@ export const ThankYou: FC = () => {
 		<div className={form.formContent}>
 			<div className={styles.wrapper}>
 				<div className={styles.thankYouImage}>
-					<img src='./images/icon-thank-you.svg' alt='thank you' />
+					<img src='./assets/images/icon-thank-you.svg' alt='thank you' />
 				</div>
 				<div className={styles.title}>Thank you!</div>
 				<div className={styles.text}>

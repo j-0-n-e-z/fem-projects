@@ -24,7 +24,7 @@ export const Plan: FC<PlanProps> = ({
 		>
 			<img
 				className={styles.icon}
-				src={`./images/plans/icon-${plan}.svg`}
+				src={`./assets/images/plans/icon-${plan}.svg`}
 				alt={plan}
 			/>
 			<div className={styles.info}>

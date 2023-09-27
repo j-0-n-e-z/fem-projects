@@ -1,5 +1,5 @@
 import App from './App'
-import { ChallengeSlider } from './components/ChallengeSlider'
+import { ChallengeSlider } from './components/ChallengeSlider/ChallengeSlider'
 import { challenges } from './data/challenges'
 
 export const routes = [

@@ -24,7 +24,7 @@ export const SelectRating: FC<SelectRatingProps> = ({ setSelectedRating }) => {
 
 	return (
 		<form className={common.form} onSubmit={handleFormSubmit}>
-			<img className={styles['star-img']} src='assets/icon-star.svg' alt='star' />
+			<img className={styles['star-img']} src='assets/images/icon-star.svg' alt='star' />
 			<h2 className={common.title}>How did we do?</h2>
 			<p className={common.description}>
 				Please let us know how we did with your support request. All feedback is

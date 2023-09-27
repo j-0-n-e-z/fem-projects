@@ -31,7 +31,7 @@ const Fight: FC<FightProps> = ({
 	}, [])
 
 	useEffect(() => {
-		let fightResultTimeout: number
+		let fightResultTimeout: NodeJS.Timeout
 
 		if (houseVariant) {
 			fightResultTimeout = setTimeout(() => {

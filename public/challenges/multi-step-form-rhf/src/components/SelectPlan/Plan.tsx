@@ -19,7 +19,7 @@ export const Plan: FC<PlanProps> = ({ plan }) => {
 		<label className={styles.plan} htmlFor={plan}>
 			<img
 				className={styles.plan__icon}
-				src={`./images/plans/icon-${plan}.svg`}
+				src={`./assets/images/plans/icon-${plan}.svg`}
 				alt={plan}
 			/>
 			<div className={styles.plan__info}>

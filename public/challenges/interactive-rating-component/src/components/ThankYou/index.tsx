@@ -12,7 +12,7 @@ export const ThankYou: FC<ThankYouProps> = ({ selectedRating }) => {
 		<div className={`${common.form} ${styles.center}`}>
 			<img
 				className={styles['thank-you-img']}
-				src='assets/illustration-thank-you.svg'
+				src='assets/images/illustration-thank-you.svg'
 				alt='thank-you'
 			/>
 			<p className={styles['selected-rating']}>

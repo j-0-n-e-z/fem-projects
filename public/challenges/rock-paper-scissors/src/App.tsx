@@ -4,7 +4,6 @@ import Fight from './components/Fight'
 import Picker from './components/Picker'
 import Score from './components/Score'
 import { Variant } from './data/variants'
-import rules from './assets/images/image-rules.svg'
 
 export default function App() {
 	const [selectedVariant, setSelectedVariant] = useState<Variant>()
@@ -38,7 +37,7 @@ export default function App() {
 								/>
 							</svg>
 						</button>
-						<img src={rules} alt='rules' />
+						<img src='./assets/images/image-rules.svg' alt='rules' />
 					</div>
 				</div>
 			)}

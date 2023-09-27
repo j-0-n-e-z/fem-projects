@@ -18,7 +18,7 @@ export default {
 				lightCyan: 'hsl(174 77% 80%)'
 			},
 			backgroundImage: {
-				pattern: 'url(/assets/images/bg-pattern.svg)'
+				pattern: 'url(./images/bg-pattern.svg)'
 			},
 			fontFamily: {
 				Manrope: ['Manrope', ...defaultTheme.fontFamily.sans]

@@ -17,7 +17,7 @@ export default {
 			},
 			backgroundImage: {
 				'hills-and-stars':
-					'url(/assets/images/pattern-hills.svg), url(/assets/images/bg-stars.svg)',
+					'url(./images/pattern-hills.svg), url(./images/bg-stars.svg)',
 			},
 			backgroundPosition: {
 				'pos-desktop': '50% 100%, 50% 0',

@@ -33,12 +33,12 @@ function App() {
 			<div className='absolute w-screen top-0 bg-darkCyan'>
 				<img
 					className='mx-auto lg:block hidden'
-					src='./images/bg-header-desktop.svg'
+					src='./assets/images/bg-header-desktop.svg'
 					alt='background'
 				/>
 				<img
 					className='mx-auto lg:hidden block'
-					src='./images/bg-header-mobile.svg'
+					src='./assets/images/bg-header-mobile.svg'
 					alt='background'
 				/>
 			</div>

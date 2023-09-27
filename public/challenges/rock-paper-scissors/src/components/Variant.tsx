@@ -1,11 +1,12 @@
 import { FC } from 'react'
 import { variantColors } from '../data/variantColors'
 import { Variant as TVariant } from '../data/variants'
-import rock from '../assets/images/icon-rock.svg'
-import paper from '../assets/images/icon-paper.svg'
-import scissors from '../assets/images/icon-scissors.svg'
 
-const variants = { rock, paper, scissors }
+const variants = {
+	rock: './assets/images/icon-rock.svg',
+	paper: './assets/images/icon-paper.svg',
+	scissors: './assets/images/icon-scissors.svg'
+}
 
 type VariantProps = {
 	variant: TVariant

@@ -15,7 +15,7 @@ export default {
 			backgroundImage: {
 				gradientWhite:
 					'linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%))',
-				pattern: 'url(/assets/images/bg-pattern-desktop.svg)'
+				pattern: 'url(./images/bg-pattern-desktop.svg)'
 			},
 			backgroundSize: {
 				'size-200': '200% 200%'
