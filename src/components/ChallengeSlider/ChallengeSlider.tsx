@@ -46,7 +46,7 @@ export const ChallengeSlider: FC<ChallengeProps> = ({
 			{showNavigation && (
 				<>
 					<button
-						className='button absolute bottom-3 left-[50%] flex translate-x-[-50%] items-center gap-x-2'
+						className='button absolute bottom-3 left-[50%] flex translate-x-[-50%] items-center gap-x-2 md:left-auto md:right-3 md:top-20 md:translate-x-0'
 						onClick={() => navigate('/')}
 					>
 						<HomeIcon />
