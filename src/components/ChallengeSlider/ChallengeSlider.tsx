@@ -77,7 +77,7 @@ export const ChallengeSlider: FC<ChallengeProps> = ({
 			<iframe
 				ref={iframeRef}
 				className='h-full w-full'
-				src={`/challenges/${current}/dist/index.html`}
+				src={`../../../build/challenges/${current}/dist/index.html`}
 				title={current}
 				onLoad={onIframeLoad}
 			/>
