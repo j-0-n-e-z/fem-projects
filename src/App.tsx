@@ -15,7 +15,7 @@ const App = () => (
 				<Link
 					key={challenge}
 					className='rounded-md border-2 px-2 py-1 transition-colors hover:bg-gray-100'
-					to={challenge}
+					to={`challenges/${challenge}`}
 				>
 					{capitalize(challenge)}
 				</Link>

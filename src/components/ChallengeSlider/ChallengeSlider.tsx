@@ -1,26 +1,37 @@
 import { useRef, useState, type FC } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+
+import { challenges } from '../../data/challenges'
 
 import { ArrowIcon } from './components/ArrowIcon'
 import { EyeIcon } from './components/EyeIcon'
 import { HomeIcon } from './components/HomeIcon'
 import { SlashEyeIcon } from './components/SlashEyeIcon'
 
-interface ChallengeProps {
-	prev?: string
-	current: string
-	next?: string
-}
+// TODO: fix reset of showNavigation after F5
+// TODO: change button with navigate to Link
 
-export const ChallengeSlider: FC<ChallengeProps> = ({
-	prev,
-	current,
-	next
-}) => {
+export const ChallengeSlider: FC = () => {
 	const navigate = useNavigate()
 	const [hasError, setHasError] = useState(false)
 	const [showNavigation, setShowNavigation] = useState(true)
 	const iframeRef = useRef<HTMLIFrameElement>(null)
+
+	const params = useParams()
+	const currentChallenge = params.challenge
+	const currentChallengeIdx = challenges.findIndex(
+		ch => ch === currentChallenge
+	)
+
+	if (currentChallengeIdx === -1) {
+		console.log('@currentChallengeIdx', currentChallengeIdx)
+		return null
+	}
+
+	const prev = challenges[currentChallengeIdx - 1]
+	const next = challenges[currentChallengeIdx + 1]
+
+	console.log(params)
 
 	const onIframeLoad = () => {
 		if (iframeRef.current) {
@@ -54,7 +65,7 @@ export const ChallengeSlider: FC<ChallengeProps> = ({
 					{prev && (
 						<button
 							className='button absolute bottom-3 left-3 flex items-center md:bottom-[50%] md:left-3 md:translate-y-[50%]'
-							onClick={() => navigate(`../${prev}`)}
+							onClick={() => navigate(`../challenges/${prev}`)}
 						>
 							<ArrowIcon />
 						</button>
@@ -62,7 +73,7 @@ export const ChallengeSlider: FC<ChallengeProps> = ({
 					{next && (
 						<button
 							className='button absolute bottom-3 right-3 flex items-center md:bottom-[50%] md:right-3 md:translate-y-[50%]'
-							onClick={() => navigate(`../${next}`)}
+							onClick={() => navigate(`../challenges/${next}`)}
 						>
 							<ArrowIcon className='rotate-180' />
 						</button>
@@ -70,15 +81,13 @@ export const ChallengeSlider: FC<ChallengeProps> = ({
 				</>
 			)}
 			{hasError && (
-				<h2 className='font-Mooli text-4xl font-bold' id='error'>
-					Something went wrong
-				</h2>
+				<h2 className='font-Mooli text-4xl font-bold'>Something went wrong</h2>
 			)}
 			<iframe
 				ref={iframeRef}
 				className='h-full w-full'
-				src={`./build/challenges/${current}/dist/index.html`}
-				title={current}
+				src={`../build/challenges/${currentChallenge}/dist/index.html`}
+				title={currentChallenge}
 				onLoad={onIframeLoad}
 			/>
 		</div>
