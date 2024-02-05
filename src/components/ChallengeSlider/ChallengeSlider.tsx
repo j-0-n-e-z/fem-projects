@@ -1,5 +1,5 @@
-import { useRef, useState, type FC } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useEffect, useRef, useState, type FC } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 
 import { challenges } from '../../data/challenges'
 
@@ -8,30 +8,34 @@ import { EyeIcon } from './components/EyeIcon'
 import { HomeIcon } from './components/HomeIcon'
 import { SlashEyeIcon } from './components/SlashEyeIcon'
 
-// TODO: fix reset of showNavigation after F5
-// TODO: change button with navigate to Link
-
 export const ChallengeSlider: FC = () => {
-	const navigate = useNavigate()
 	const [hasError, setHasError] = useState(false)
-	const [showNavigation, setShowNavigation] = useState(true)
+	const [isShowNavigation, setIsShowNavigation] = useState<boolean>(true)
 	const iframeRef = useRef<HTMLIFrameElement>(null)
+	const navigate = useNavigate()
 
-	const params = useParams()
-	const currentChallenge = params.challenge
+	const currentChallenge = useParams().challenge
 	const currentChallengeIdx = challenges.findIndex(
 		ch => ch === currentChallenge
 	)
 
 	if (currentChallengeIdx === -1) {
-		console.log('@currentChallengeIdx', currentChallengeIdx)
-		return null
+		throw Error('challenge was not found')
 	}
 
-	const prev = challenges[currentChallengeIdx - 1]
-	const next = challenges[currentChallengeIdx + 1]
+	useEffect(() => {
+		const showNav = localStorage.getItem('SHOW_NAV')
+		if (showNav !== null) {
+			setIsShowNavigation(Boolean(JSON.parse(showNav)))
+		}
+	}, [])
 
-	console.log(params)
+	useEffect(() => {
+		localStorage.setItem('SHOW_NAV', JSON.stringify(isShowNavigation))
+	}, [isShowNavigation])
+
+	const prevChallenge = challenges[currentChallengeIdx - 1]
+	const nextChallenge = challenges[currentChallengeIdx + 1]
 
 	const onIframeLoad = () => {
 		if (iframeRef.current) {
@@ -43,7 +47,7 @@ export const ChallengeSlider: FC = () => {
 	}
 
 	const toggleNavigation = () => {
-		setShowNavigation(prev => !prev)
+		setIsShowNavigation(prev => !prev)
 	}
 
 	return (
@@ -52,9 +56,9 @@ export const ChallengeSlider: FC = () => {
 				className='button absolute right-3 top-3 flex items-center gap-x-2'
 				onClick={toggleNavigation}
 			>
-				{showNavigation ? <EyeIcon /> : <SlashEyeIcon />}
+				{isShowNavigation ? <EyeIcon /> : <SlashEyeIcon />}
 			</button>
-			{showNavigation && (
+			{isShowNavigation && (
 				<>
 					<button
 						className='button absolute bottom-3 left-[50%] flex translate-x-[-50%] items-center gap-x-2 md:left-auto md:right-3 md:top-20 md:translate-x-0'
@@ -62,21 +66,21 @@ export const ChallengeSlider: FC = () => {
 					>
 						<HomeIcon />
 					</button>
-					{prev && (
-						<button
+					{prevChallenge && (
+						<Link
 							className='button absolute bottom-3 left-3 flex items-center md:bottom-[50%] md:left-3 md:translate-y-[50%]'
-							onClick={() => navigate(`../challenges/${prev}`)}
+							to={`../challenges/${prevChallenge}`}
 						>
 							<ArrowIcon />
-						</button>
+						</Link>
 					)}
-					{next && (
-						<button
+					{nextChallenge && (
+						<Link
 							className='button absolute bottom-3 right-3 flex items-center md:bottom-[50%] md:right-3 md:translate-y-[50%]'
-							onClick={() => navigate(`../challenges/${next}`)}
+							to={`../challenges/${nextChallenge}`}
 						>
 							<ArrowIcon className='rotate-180' />
-						</button>
+						</Link>
 					)}
 				</>
 			)}
