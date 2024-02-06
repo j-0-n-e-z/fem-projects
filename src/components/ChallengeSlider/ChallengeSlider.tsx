@@ -1,17 +1,13 @@
-import { useEffect, useRef, useState, type FC } from 'react'
+import { useEffect, useState, type FC } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 
-import { challenges } from '../../data/challenges'
-
-import { ArrowIcon } from './components/ArrowIcon'
-import { EyeIcon } from './components/EyeIcon'
-import { HomeIcon } from './components/HomeIcon'
-import { SlashEyeIcon } from './components/SlashEyeIcon'
+import { ArrowIcon, EyeIcon, HomeIcon, SlashEyeIcon } from '@/components'
+import { challenges } from '@/data'
+import { useIframe } from '@/hooks'
 
 export const ChallengeSlider: FC = () => {
-	const [hasError, setHasError] = useState(false)
+	const { iframeRef, onIframeLoad, iframeHasError } = useIframe()
 	const [isShowNavigation, setIsShowNavigation] = useState<boolean>(true)
-	const iframeRef = useRef<HTMLIFrameElement>(null)
 	const navigate = useNavigate()
 
 	const currentChallenge = useParams().challenge
@@ -36,15 +32,6 @@ export const ChallengeSlider: FC = () => {
 
 	const prevChallenge = challenges[currentChallengeIdx - 1]
 	const nextChallenge = challenges[currentChallengeIdx + 1]
-
-	const onIframeLoad = () => {
-		if (iframeRef.current) {
-			const hasContent =
-				iframeRef.current.contentDocument?.body.firstElementChild?.innerHTML
-			setHasError(!hasContent)
-			iframeRef.current.style.display = hasContent ? 'block' : 'none'
-		}
-	}
 
 	const toggleNavigation = () => {
 		setIsShowNavigation(prev => !prev)
@@ -84,7 +71,7 @@ export const ChallengeSlider: FC = () => {
 					)}
 				</>
 			)}
-			{hasError && (
+			{iframeHasError && (
 				<h2 className='font-Mooli text-4xl font-bold'>Something went wrong</h2>
 			)}
 			<iframe
@@ -97,3 +84,8 @@ export const ChallengeSlider: FC = () => {
 		</div>
 	)
 }
+
+export * from './components/ArrowIcon'
+export * from './components/EyeIcon'
+export * from './components/HomeIcon'
+export * from './components/SlashEyeIcon'
