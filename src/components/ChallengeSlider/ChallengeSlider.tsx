@@ -1,41 +1,19 @@
-import { useEffect, useState, type FC } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { type FC } from 'react'
+import { Link, useParams } from 'react-router-dom'
 
 import { ArrowIcon, EyeIcon, HomeIcon, SlashEyeIcon } from '@/components'
 import { challenges } from '@/data'
-import { useIframe } from '@/hooks'
+import { useIframe, useNavigation } from '@/hooks'
 
 export const ChallengeSlider: FC = () => {
 	const { iframeRef, onIframeLoad, iframeHasError } = useIframe()
-	const [isShowNavigation, setIsShowNavigation] = useState<boolean>(true)
-	const navigate = useNavigate()
-
-	const currentChallenge = useParams().challenge
-	const currentChallengeIdx = challenges.findIndex(
-		ch => ch === currentChallenge
-	)
-
-	if (currentChallengeIdx === -1) {
-		throw Error('challenge was not found')
-	}
-
-	useEffect(() => {
-		const showNav = localStorage.getItem('SHOW_NAV')
-		if (showNav !== null) {
-			setIsShowNavigation(Boolean(JSON.parse(showNav)))
-		}
-	}, [])
-
-	useEffect(() => {
-		localStorage.setItem('SHOW_NAV', JSON.stringify(isShowNavigation))
-	}, [isShowNavigation])
-
-	const prevChallenge = challenges[currentChallengeIdx - 1]
-	const nextChallenge = challenges[currentChallengeIdx + 1]
-
-	const toggleNavigation = () => {
-		setIsShowNavigation(prev => !prev)
-	}
+	const {
+		showNavigation,
+		toggleNavigation,
+		currentItems: { 0: prevChallenge, 1: currentChallenge, 2: nextChallenge },
+		goForth,
+		goBack
+	} = useNavigation<string>(challenges, useParams().challenge!)
 
 	return (
 		<div className='flex h-screen items-center justify-center'>
@@ -43,31 +21,31 @@ export const ChallengeSlider: FC = () => {
 				className='button absolute right-3 top-3 flex items-center gap-x-2'
 				onClick={toggleNavigation}
 			>
-				{isShowNavigation ? <EyeIcon /> : <SlashEyeIcon />}
+				{showNavigation ? <EyeIcon /> : <SlashEyeIcon />}
 			</button>
-			{isShowNavigation && (
+			{showNavigation && (
 				<>
-					<button
+					<Link
 						className='button absolute bottom-3 left-[50%] flex translate-x-[-50%] items-center gap-x-2 md:left-auto md:right-3 md:top-20 md:translate-x-0'
-						onClick={() => navigate('/')}
+						to='/'
 					>
 						<HomeIcon />
-					</button>
+					</Link>
 					{prevChallenge && (
-						<Link
+						<button
 							className='button absolute bottom-3 left-3 flex items-center md:bottom-[50%] md:left-3 md:translate-y-[50%]'
-							to={`../challenges/${prevChallenge}`}
+							onClick={goBack}
 						>
 							<ArrowIcon />
-						</Link>
+						</button>
 					)}
 					{nextChallenge && (
-						<Link
+						<button
 							className='button absolute bottom-3 right-3 flex items-center md:bottom-[50%] md:right-3 md:translate-y-[50%]'
-							to={`../challenges/${nextChallenge}`}
+							onClick={goForth}
 						>
 							<ArrowIcon className='rotate-180' />
-						</Link>
+						</button>
 					)}
 				</>
 			)}
