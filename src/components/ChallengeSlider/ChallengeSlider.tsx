@@ -13,7 +13,7 @@ export const ChallengeSlider: FC = () => {
 		currentItems: { 0: prevChallenge, 1: currentChallenge, 2: nextChallenge },
 		goForth,
 		goBack
-	} = useNavigation<string>(challenges, useParams().challenge!)
+	} = useNavigation<string>(challenges, useParams().challenge!, 'challenges')
 
 	return (
 		<div className='flex h-screen items-center justify-center'>
