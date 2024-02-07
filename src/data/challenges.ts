@@ -1,4 +1,5 @@
 export const challenges = [
+	'3-column-preview',
 	'age-calculator-app',
 	'article-preview-component',
 	'base-apparel-page',
