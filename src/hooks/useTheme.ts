@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react'
 
-type Theme = 'light' | 'dark'
-
 export const useTheme = () => {
-	const [currentTheme, setCurrentTheme] = useState<Theme>('light')
+	const [currentTheme, setCurrentTheme] = useState<Theme>()
 
 	const setTheme = (theme: Theme) => {
 		if (theme === 'light') {
@@ -17,16 +15,15 @@ export const useTheme = () => {
 
 	const setThemeFromLocalStorage = (isToggling = false) => {
 		const theme = localStorage.getItem('theme')
+		const isLight = JSON.parse(theme ?? '{}') === 'light'
 
-		if (theme === null) {
+		if (theme === null || (theme && isLight)) {
 			setTheme(isToggling ? 'dark' : 'light')
 			return
 		}
 
-		if (JSON.parse(theme) === 'dark') {
+		if (!isLight) {
 			setTheme(isToggling ? 'light' : 'dark')
-		} else {
-			setTheme(isToggling ? 'dark' : 'light')
 		}
 	}
 

@@ -32,16 +32,13 @@ export const ChallengeSlider: FC = () => {
 					>
 						<HomeIcon />
 					</Link>
-					{prevChallenge && (
-						<NavigationButton towardsRight={false} onClick={goBack} />
-					)}
+					{prevChallenge && <NavigationButton right={false} onClick={goBack} />}
 					{nextChallenge && <NavigationButton onClick={goForth} />}
 				</>
 			)}
 			{iframeHasError && (
 				<h2 className='font-Mooli text-4xl font-bold'>Something went wrong</h2>
 			)}
-			{/* iframe must be rendered even if error has occurred */}
 			<iframe
 				ref={iframeRef}
 				className='h-full w-full'

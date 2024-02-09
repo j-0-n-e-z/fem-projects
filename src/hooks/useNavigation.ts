@@ -57,7 +57,7 @@ export const useNavigation = <T>(items: T[], item: T, basePath: string) => {
 		localStorage.setItem('show-nav', JSON.stringify(showNavigation))
 	}, [showNavigation])
 
-	// I've no idea why it works only when event listener is added on every render
+	// keyword navigation works only when event listener is added on every render
 	useEffect(() => {
 		window.addEventListener('keydown', onKeydown)
 		return () => window.removeEventListener('keydown', onKeydown)
