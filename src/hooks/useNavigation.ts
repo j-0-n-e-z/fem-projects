@@ -19,14 +19,16 @@ export const useNavigation = <T>(items: T[], item: T, basePath: string) => {
 
 	const goForth = () => {
 		if (startIdx + 2 < items.length) {
-			navigate(`../${basePath}/${items[startIdx + 2]}`)
+			const nextItem = items[startIdx + 2]
+			navigate(`../${basePath}/${nextItem}`)
 			setStartIdx(startIdx => startIdx + 1)
 		}
 	}
 
 	const goBack = () => {
 		if (startIdx >= 0) {
-			navigate(`../${basePath}/${items[startIdx]}`)
+			const prevItem = items[startIdx]
+			navigate(`../${basePath}/${prevItem}`)
 			setStartIdx(startIdx => startIdx - 1)
 		}
 	}
@@ -55,20 +57,14 @@ export const useNavigation = <T>(items: T[], item: T, basePath: string) => {
 		localStorage.setItem('show-nav', JSON.stringify(showNavigation))
 	}, [showNavigation])
 
-	// I have no idea why it works only when event listener is added on every render
+	// I've no idea why it works only when event listener is added on every render
 	useEffect(() => {
 		window.addEventListener('keydown', onKeydown)
 		return () => window.removeEventListener('keydown', onKeydown)
 	})
 
-	console.log('start', startIdx)
-
 	return {
-		currentItems: [
-			items[startIdx],
-			items[startIdx + 1],
-			items[startIdx + 2]
-		],
+		currentItems: [items[startIdx], items[startIdx + 1], items[startIdx + 2]],
 		goBack,
 		goForth,
 		onKeydown,
