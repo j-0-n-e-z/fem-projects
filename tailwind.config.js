@@ -7,7 +7,7 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				Mooli: ['Mooli', ...defaultTheme.fontFamily.sans]
+				Nunito: ['Nunito', ...defaultTheme.fontFamily.sans]
 			}
 		}
 	},

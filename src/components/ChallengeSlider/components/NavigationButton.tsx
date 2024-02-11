@@ -12,7 +12,7 @@ export const NavigationButton: FC<NavigationButtonProps> = ({
 	right = true
 }) => (
 	<button
-		className={`button absolute bottom-3 flex items-center md:bottom-[50%]  md:translate-y-[50%] ${
+		className={`navigation-button absolute bottom-3 flex items-center md:bottom-[50%]  md:translate-y-[50%] ${
 			right ? 'right-3 md:right-3' : 'left-3 md:left-3'
 		}`}
 		onClick={onClick}

@@ -1,3 +1,6 @@
+import { motion as m } from 'framer-motion'
+import { useMemo } from 'react'
+
 import {
 	ChallengeLink,
 	Footer,
@@ -5,25 +8,37 @@ import {
 	LanguageToggler,
 	ThemeToggler
 } from '@/components'
+import type { LanguageContextType } from '@/contexts'
+import { LanguageContext } from '@/contexts'
 import { challenges } from '@/data'
-
-import { LanguageContext } from './context/LanguageContext'
-import { useLanguage } from './hooks'
+import { useToggle } from '@/hooks'
 
 const App = () => {
-	const { currentLanguage, toggleLanguage } = useLanguage()
+	const [currentLanguage, toggleLanguage] = useToggle<Language>('lang', [
+		'ru',
+		'en'
+	])
+
+	const value = useMemo(
+		() => [currentLanguage, toggleLanguage] as LanguageContextType,
+		[currentLanguage]
+	)
 
 	return (
-		<LanguageContext.Provider value={currentLanguage ?? 'ru'}>
-			<div className='grid min-h-screen w-full place-items-center gap-y-8 font-Mooli dark:bg-gray-700'>
+		<LanguageContext.Provider value={value}>
+			<div className='grid min-h-screen w-full place-items-center gap-y-8 font-Nunito dark:bg-gray-700'>
+				<LanguageToggler />
 				<ThemeToggler />
-				<LanguageToggler toggleLanguage={toggleLanguage} />
 				<Header />
-				<main className='flex h-full w-10/12 flex-wrap content-center items-center justify-center gap-2 text-center lg:w-3/5'>
+				<m.main
+					animate
+					className='flex h-full w-10/12 flex-wrap content-center items-center justify-center gap-2 text-center lg:w-3/5'
+					initial={false}
+				>
 					{challenges.map(challenge => (
 						<ChallengeLink key={challenge} challenge={challenge} />
 					))}
-				</main>
+				</m.main>
 				<Footer />
 			</div>
 		</LanguageContext.Provider>

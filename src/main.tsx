@@ -1,20 +1,20 @@
 import ReactDOM from 'react-dom/client'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
+import { ChallengeSlider, ErrorElement } from '@/components'
+
 import App from './App'
-import { ChallengeSlider } from './components/ChallengeSlider/ChallengeSlider'
-import ErrorElement from './components/ErrorElement/ErrorElement'
 import './index.css'
 
 const router = createBrowserRouter([
 	{
 		element: <App />,
-		errorElement: <ErrorElement errorMessage='Wrong address' />,
+		errorElement: <ErrorElement errorType='wrongAddress' />,
 		path: '/'
 	},
 	{
 		element: <ChallengeSlider />,
-		errorElement: <ErrorElement errorMessage='Cannot Find This Challenge' />,
+		errorElement: <ErrorElement errorType='challengeNotFound' />,
 		path: `challenges/:challenge`
 	}
 ])

@@ -1,9 +1,16 @@
-import type { FC } from 'react'
+import { useContext, type FC } from 'react'
 
-interface LanguageTogglerProps {
-	toggleLanguage: () => void
+import { LanguageContext } from '@/contexts'
+
+export const LanguageToggler: FC = () => {
+	const [language, toggleLanguage] = useContext(LanguageContext)
+
+	return (
+		<button
+			className='toggle-button absolute left-4 top-4'
+			onClick={toggleLanguage}
+		>
+			{language}
+		</button>
+	)
 }
-
-export const LanguageToggler: FC<LanguageTogglerProps> = ({
-	toggleLanguage
-}) => <button onClick={toggleLanguage}>LanguageToggler</button>
