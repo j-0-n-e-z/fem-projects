@@ -1,4 +1,3 @@
-import { motion as m } from 'framer-motion'
 import { useMemo } from 'react'
 
 import {
@@ -30,15 +29,11 @@ const App = () => {
 				<LanguageToggler />
 				<ThemeToggler />
 				<Header />
-				<m.main
-					animate
-					className='flex h-full w-10/12 flex-wrap content-center items-center justify-center gap-2 text-center lg:w-3/5'
-					initial={false}
-				>
+				<main className='flex h-full w-10/12 flex-wrap content-center items-center justify-center gap-2 text-center lg:w-3/5'>
 					{challenges.map(challenge => (
 						<ChallengeLink key={challenge} challenge={challenge} />
 					))}
-				</m.main>
+				</main>
 				<Footer />
 			</div>
 		</LanguageContext.Provider>
