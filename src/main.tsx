@@ -3,7 +3,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 import { ChallengeSlider, ErrorElement } from '@/components'
 
-import App from './App'
+import { App } from './App'
 import './index.css'
 
 const router = createBrowserRouter([

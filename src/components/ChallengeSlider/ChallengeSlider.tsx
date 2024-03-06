@@ -19,7 +19,7 @@ export const ChallengeSlider: FC = () => {
 	return (
 		<div className='flex h-screen items-center justify-center'>
 			<button
-				className='navigation-button absolute right-3 top-3 flex items-center gap-x-2'
+				className='navigation-button absolute right-[50%] top-3 flex translate-x-[50%] items-center gap-x-2 md:translate-x-0'
 				onClick={toggleNavigation}
 			>
 				{showNavigation ? <EyeIcon /> : <SlashEyeIcon />}
@@ -27,7 +27,7 @@ export const ChallengeSlider: FC = () => {
 			{showNavigation && (
 				<>
 					<Link
-						className='navigation-button absolute bottom-3 left-[50%] flex translate-x-[-50%] items-center gap-x-2 md:left-auto md:right-3 md:top-20 md:translate-x-0'
+						className='navigation-button absolute bottom-3 left-[50%] flex translate-x-[-50%] items-center gap-x-2 md:top-3 md:translate-x-2'
 						to='/'
 					>
 						<HomeIcon />

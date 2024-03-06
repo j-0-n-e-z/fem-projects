@@ -1,5 +1,8 @@
 import { createContext } from 'react'
 
-export type LanguageContextType = [Language, () => void]
+export type LanguageContextType = [Language, (language: Language) => void]
 
-export const LanguageContext = createContext<LanguageContextType>(['ru', () => {}])
+export const LanguageContext = createContext<LanguageContextType>([
+	'en',
+	() => {}
+])

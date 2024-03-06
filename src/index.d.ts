@@ -1,3 +1,2 @@
 type Theme = 'light' | 'dark'
-type Language = 'ru' | 'en'
-
+type Language = 'ru' | 'en' | 'es'

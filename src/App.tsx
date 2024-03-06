@@ -4,29 +4,26 @@ import {
 	ChallengeLink,
 	Footer,
 	Header,
-	LanguageToggler,
+	LanguageSelector,
 	ThemeToggler
 } from '@/components'
 import type { LanguageContextType } from '@/contexts'
 import { LanguageContext } from '@/contexts'
 import { challenges } from '@/data'
-import { useToggle } from '@/hooks'
+import { useLanguage } from '@/hooks'
 
-const App = () => {
-	const [currentLanguage, toggleLanguage] = useToggle<Language>('lang', [
-		'ru',
-		'en'
-	])
+export const App = () => {
+	const [currentLanguage, setCurrentLanguage] = useLanguage()
 
 	const value = useMemo(
-		() => [currentLanguage, toggleLanguage] as LanguageContextType,
+		() => [currentLanguage, setCurrentLanguage] as LanguageContextType,
 		[currentLanguage]
 	)
 
 	return (
 		<LanguageContext.Provider value={value}>
 			<div className='grid min-h-screen w-full place-items-center gap-y-8 font-Nunito dark:bg-gray-700'>
-				<LanguageToggler />
+				<LanguageSelector />
 				<ThemeToggler />
 				<Header />
 				<main className='flex h-full w-10/12 flex-wrap content-center items-center justify-center gap-2 text-center lg:w-3/5'>
@@ -39,4 +36,3 @@ const App = () => {
 		</LanguageContext.Provider>
 	)
 }
-export default App
