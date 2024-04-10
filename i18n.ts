@@ -6,20 +6,20 @@ import en from './src/data/locales/en.json'
 import es from './src/data/locales/es.json'
 import ru from './src/data/locales/ru.json'
 
+const FALLBACK_LANGUAGE = 'ru'
+const resources = { en, es, ru }
+const convertDetectedLanguage = (lng: string) => (lng.slice(0, 2) === 'en' ? 'en' : lng)
+
 i18next
 	.use(LanguageDetector)
 	.use(initReactI18next)
 	.init({
 		detection: {
-			convertDetectedLanguage: lng => (lng.slice(0, 2) === 'en' ? 'en' : lng)
+			convertDetectedLanguage
 		},
-		fallbackLng: 'ru',
+		fallbackLng: FALLBACK_LANGUAGE,
 		interpolation: {
 			escapeValue: false
 		},
-		resources: {
-			en,
-			es,
-			ru
-		}
+		resources
 	})

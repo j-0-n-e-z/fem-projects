@@ -9,8 +9,6 @@ interface ErrorElementProps {
 
 export const ErrorElement: FC<ErrorElementProps> = ({ errorType }) => {
 	const { t } = useTranslation()
-	// TODO: must use preferred language instead of just 'ru'
-	const language = JSON.parse(localStorage.getItem('lang') ?? 'ru') as Language
 	const theme = JSON.parse(localStorage.getItem('theme') ?? 'light') as Theme
 
 	if (theme === 'light') {
