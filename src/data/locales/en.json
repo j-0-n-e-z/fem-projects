@@ -1,0 +1,19 @@
+{
+	"translation": {
+		"errors": {
+			"challengeNotFound": "Cannot Find This Challenge",
+			"wrongAddress": "Page Not Found"
+		},
+		"footer": "Feel free to contact me:",
+		"header": {
+			"emoji": "🎉",
+			"text": "Challenges I have passed on"
+		},
+		"navigation": {
+			"eye": "Toggle Navigation",
+			"home": "Home",
+			"next": "Next",
+			"previous": "Previous"
+		}
+	}
+}

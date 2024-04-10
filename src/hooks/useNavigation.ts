@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export const useNavigation = <T>(items: T[], item: T, basePath: string) => {
-	const [showNavigation, setShowNavigation] = useState<boolean>(true)
+	const [showNavigation, setShowNavigation] = useState(true)
 	const navigate = useNavigate()
 
 	function getStartIdx(currentItemIdx: number) {
@@ -13,7 +13,7 @@ export const useNavigation = <T>(items: T[], item: T, basePath: string) => {
 		return currentItemIdx - 1
 	}
 
-	const [startIdx, setStartIdx] = useState<number>(
+	const [startIdx, setStartIdx] = useState(
 		getStartIdx(items.findIndex(x => x === item))
 	)
 

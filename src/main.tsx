@@ -4,6 +4,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { ChallengeSlider, ErrorElement } from '@/components'
 
 import { App } from './App'
+import '../i18n'
 import './index.css'
 
 const router = createBrowserRouter([

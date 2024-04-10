@@ -1,18 +1,13 @@
-import { useContext, type FC } from 'react'
-
-import { LanguageContext } from '@/contexts'
-import { translations } from '@/data'
+import { type FC } from 'react'
+import { useTranslation } from 'react-i18next'
 
 export const Header: FC = () => {
-	const [language] = useContext(LanguageContext)
-
-	const text = translations.header.text[language]
-	const emoji = translations.header.emoji[language]
+	const { t } = useTranslation()
 
 	return (
-		<header className='mt-16 self-end md:mt-10'>
-			<h1 className='px-5 text-center text-lg font-bold dark:text-white md:px-0 md:text-2xl lg:text-3xl'>
-				{emoji} {text}{' '}
+		<header className='mt-20 self-end md:mt-12'>
+			<h1 className='px-5 text-center text-[14px] font-bold dark:text-white sm:text-lg md:px-0 md:text-2xl lg:text-3xl'>
+				{t('header.emoji')} {t('header.text')}{' '}
 				<a
 					className='underline decoration-blue-400 decoration-wavy dark:decoration-purple-300'
 					href='https://www.frontendmentor.io/'
@@ -22,7 +17,7 @@ export const Header: FC = () => {
 				>
 					Frontend Mentor
 				</a>{' '}
-				{emoji}
+				{t('header.emoji')}
 			</h1>
 		</header>
 	)

@@ -5,7 +5,6 @@ export const useIframe = (onKeydown: (e: KeyboardEvent) => void) => {
 	const iframeRef = useRef<HTMLIFrameElement>(null)
 
 	const onIframeLoad = () => {
-		console.log('onIframeLoad')
 		if (iframeRef.current) {
 			const hasContent = Boolean(
 				iframeRef.current.contentDocument?.body.firstElementChild?.innerHTML

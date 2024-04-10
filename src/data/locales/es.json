@@ -1,0 +1,19 @@
+{
+	"translation": {
+		"errors": {
+			"challengeNotFound": "No Puedo Encontrar Este Desafío",
+			"wrongAddress": "Página No Encontrada"
+		},
+		"footer": "Contacta conmigo",
+		"header": {
+			"emoji": "🌯",
+			"text": "Tareas que he resuelto en"
+		},
+		"navigation": {
+			"eye": "Mostrar/ocultar navegación",
+			"home": "Inicio",
+			"next": "Siguiente",
+			"previous": "Anterior"
+		}
+	}
+}
