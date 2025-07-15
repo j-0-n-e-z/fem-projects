@@ -21,8 +21,7 @@
 			"@/components": ["./src/components"],
 			"@/data": ["./src/data"],
 			"@/hooks": ["./src/hooks"],
-			"@/helpers": ["./src/helpers"],
-			"@/contexts": ["./src/contexts"]
+			"@/helpers": ["./src/helpers"]
 		},
 
 		/* Linting */

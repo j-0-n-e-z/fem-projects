@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const DEFAULT_THEME: Theme = 'light'
+import { DEFAULT_THEME } from '../constants'
 
 export const useTheme = () => {
 	const [currentTheme, setCurrentTheme] = useState<Theme>()

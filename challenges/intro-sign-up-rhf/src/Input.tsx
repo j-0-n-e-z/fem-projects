@@ -25,7 +25,7 @@ export const Input: FC<InputPropsType> = ({ label, error, register }) => {
 			/>
 			{error && (
 				<>
-					<p className='input-container__error-msg'>{error?.message}</p>
+					<p className='input-container__error-msg'>{error.message}</p>
 					<img
 						className='input-container__icon'
 						src='assets/images/icon-error.svg'

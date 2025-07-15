@@ -8,7 +8,7 @@ export const ThemeToggler: FC = () => {
 
 	return (
 		<button
-			className='toggle-button absolute right-4 top-4'
+			className='toggle-button fixed right-4 top-4'
 			onClick={toggleTheme}
 		>
 			{currentTheme === 'light' ? <MoonIcon /> : <SunIcon />}

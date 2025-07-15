@@ -7,7 +7,7 @@ export const useIframe = (onKeydown: (e: KeyboardEvent) => void) => {
 	const onIframeLoad = () => {
 		if (iframeRef.current) {
 			const hasContent = Boolean(
-				iframeRef.current.contentDocument?.body.firstElementChild?.innerHTML
+				iframeRef.current.contentDocument?.body
 			)
 			setIframeHasError(!hasContent)
 			iframeRef.current.style.display = hasContent ? 'block' : 'none'

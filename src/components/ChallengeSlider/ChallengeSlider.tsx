@@ -32,8 +32,12 @@ export const ChallengeSlider: FC = () => {
 					>
 						<HomeIcon />
 					</Link>
-					{prevChallenge && <NavigationButton right={false} onClick={goBack} />}
-					{nextChallenge && <NavigationButton onClick={goForth} />}
+					{prevChallenge && (
+						<NavigationButton direction='left' onClick={goBack} />
+					)}
+					{nextChallenge && (
+						<NavigationButton direction='right' onClick={goForth} />
+					)}
 				</>
 			)}
 			{iframeHasError && (
